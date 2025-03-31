@@ -1,30 +1,27 @@
-const {app, BrowserWindow} = require('electron/main')
-const path = require('node:path')
+const {app, BrowserWindow} = require('electron');
+const path = require('path');
+const remote = require('@electron/remote/main');
+remote.initialize();
+
+let mainWindow;
 
 function createWindow() {
-  const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+  mainWindow = new BrowserWindow({
+    width: 1200,
+    height: 800,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      nodeIntegration: true,
+      contextIsolation: false,
+      enableRemoteModule: true,
     }
-  })
+  });
 
-  win.loadFile('index.html')
+  mainWindow.loadFile(path.join(__dirname, 'dist/finanze-personali/browser/index.html'));
+  remote.enable(mainWindow.webContents);
+
+  mainWindow.on('closed', () => {
+    mainWindow = null;
+  });
 }
 
-app.whenReady().then(() => {
-  createWindow()
-
-  app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow()
-    }
-  })
-})
-
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit()
-  }
-})
+app.on('ready', createWindow);
