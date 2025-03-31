@@ -1,1 +1,27 @@
-<p>header works!</p>
+<header class="bg-primary-custom p-3 mb-4">
+  <div class="container-fluid d-flex align-items-center justify-content-between">
+    <div class="logo d-flex align-items-center">
+      <img src="assets/logo.png" alt="Logo" class="logo-img me-2">
+      <span class="fs-4 text-secondary-custom">Finanze Personali</span>
+    </div>
+    <nav>
+      <ul class="nav">
+        <li class="nav-item">
+          <button mat-button class="text-secondary-custom" routerLink="/">Home</button>
+        </li>
+        <li class="nav-item">
+          <button mat-button class="text-secondary-custom" routerLink="/dashboard">Dashboard</button>
+        </li>
+        <li class="nav-item">
+          <button mat-button class="text-secondary-custom" routerLink="/transactions">Transazioni</button>
+        </li>
+        <li class="nav-item">
+          <button mat-button class="text-secondary-custom" routerLink="/reports">Report</button>
+        </li>
+        <li class="nav-item">
+          <button mat-button class="text-secondary-custom" routerLink="/informazioni">Informazioni</button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

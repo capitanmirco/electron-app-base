@@ -1,0 +1,99 @@
+/* Stili generali */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e0f7fa;
+  color: #0d47a1;
+  min-height: 100vh;
+}
+
+.container-fluid {
+  padding: 20px;
+}
+
+/* Classi per i colori principali */
+.bg-primary-custom {
+  background-color: #0d47a1 !important;
+  color: #ffffff !important;
+}
+
+.bg-secondary-custom {
+  background-color: #e0f7fa !important;
+  color: #0d47a1 !important;
+}
+
+.text-primary-custom {
+  color: #0d47a1 !important;
+}
+
+.text-secondary-custom {
+  color: #e0f7fa !important;
+}
+
+/* Stili responsive */
+@media (max-width: 768px) {
+  .logo-img {
+    width: 30px;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Stili dei pulsanti */
+.btn-primary-custom {
+  background-color: #0d47a1 !important;
+  border-color: #0d47a1 !important;
+}
+
+.btn-secondary-custom {
+  background-color: #e0f7fa !important;
+  border-color: #e0f7fa !important;
+  color: #0d47a1 !important;
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+app-header, app-footer {
+  flex-shrink: 0;
+}
+
+.router-outlet-container {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .router-outlet-container {
+    padding: 10px;
+  }
+}
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+app-header, app-footer {
+  flex-shrink: 0;
+}
+
+.router-outlet-container {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .router-outlet-container {
+    padding: 10px;
+  }
+}
