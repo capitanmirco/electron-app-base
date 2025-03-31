@@ -14,7 +14,11 @@
     "serve:ssr:finanze-personali": "node dist/finanze-personali/server/server.mjs",
     "electron": "ng build --output-path=dist/finanze-personali --base-href ./ && electron .",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "dev:angular": "ng serve",
+    "dev:electron": "wait-on http://localhost:4200 && electron .",
+    "dev": "concurrently \"npm run dev:angular\" \"npm run dev:electron\"",
+    "start:electron": "concurrently \"npm run dev:angular\" \"npm run dev:electron\""
   },
   "build": {
     "appId": "com.finanze.personali",
@@ -64,13 +68,17 @@
     "@types/express": "^4.17.17",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^18.18.0",
+    "cli-progress": "^3.12.0",
+    "concurrently": "^9.1.2",
     "electron": "^35.1.2",
+    "electron-reload": "^2.0.0-alpha.1",
     "jasmine-core": "~5.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.7.2"
+    "typescript": "~5.7.2",
+    "wait-on": "^8.0.3"
   }
 }
